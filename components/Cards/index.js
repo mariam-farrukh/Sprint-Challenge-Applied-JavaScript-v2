@@ -47,6 +47,8 @@ function Articles(info){
     articleHeadline.classList.add('headline');
     articleAuthor.classList.add('author');
     articleImgContainer.classList.add('img-container');
+    //add data attribute elements
+    // articleCard.setAttribute('data-tab');
 
     //add text content
     articleHeadline.textContent = info.headline;
