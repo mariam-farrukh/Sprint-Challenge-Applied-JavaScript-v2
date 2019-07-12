@@ -21,32 +21,20 @@
 
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(res =>{
-    const jsArticles = res.data.articles.javascript
-    const bootStrapArticles = res.data.articles.bootstrap;
-    const techArticles = res.data.articles.technology;
-    const jqueryArticles = res.data.articles.jquery;
-    const nodeArticles = res.data.articles.node
-
-    const articles = [jsArticles, bootStrapArticles, techArticles, jqueryArticles, nodeArticles]
-    
-    // const articles = [];
-    // res.data.articles.forEach(dataArticle =>{
-    //     articles.push(dataArticle)
-    // })
-    // trying to get code to loop over articles instead of hard coding it into the array
-    articles.forEach(article => {
-        article.forEach(info => {
-            const cards = document.querySelector('.cards-container');
-            cards.appendChild(Articles(info));
-        })
-    })
-    console.log('Cards data working', res.data);
+    const articlesData = res.data.articles;
+    articlesData.bootstrap.forEach(Articles);
+    articlesData.javascript.forEach(Articles);
+    articlesData.jquery.forEach(Articles);
+    articlesData.node.forEach(Articles);
+    articlesData.technology.forEach(Articles);
+    console.log('Cards are working', res.data);
 })
 .catch(error =>{
     console.log('error with cards data', error);
 })
 
 function Articles(info){
+    const articleCardContainer = document.querySelector('.cards-container');
     const articleCard = document.createElement('div');
     const articleHeadline = document.createElement('div');
     const articleAuthor = document.createElement('div');
@@ -65,11 +53,12 @@ function Articles(info){
     articleAuthorName.textContent = info.authorName;
     articleImg.src = info.authorPhoto;
 
+    articleCardContainer.appendChild(articleCard);
     articleCard.appendChild(articleHeadline);
     articleCard.appendChild(articleAuthor);
     articleAuthor.appendChild(articleImgContainer);
     articleAuthor.appendChild(articleAuthorName);
     articleImgContainer.appendChild(articleImg);
     
-    return articleCard;
+    // return articleCard;
 }
