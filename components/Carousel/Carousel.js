@@ -56,29 +56,5 @@ function Carousel(){
   carousel.appendChild(carouselImg4)
   carousel.appendChild(carouselRBtn)
 
-  const images = document.getElementsByClassName('img')
-  let currentIndex = 0
-  carouselImg1.style.display = "block"
- 
-  carouselLBtn.addEventListener('click', function slideLeft(){
-      if ((currentIndex - 1) < 0){
-      currentIndex = images.length-1;
-      } else {
-      currentIndex -= 1;        
-      }
-      Array.from(images).forEach(image => image.style.display = "none");
-      images[currentIndex].style.display = "block";
-  })
-
-  carouselRBtn.addEventListener('click', function slideRight(){
-      currentIndex += 1;
-      if (currentIndex >= images.length){
-      currentIndex = 0;
-      }
-      Array.from(images).forEach(image => image.style.display = "none");
-      images[currentIndex].style.display = "block";
-  })
-  
-
   return carousel
 }
