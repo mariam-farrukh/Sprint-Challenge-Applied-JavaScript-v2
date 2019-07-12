@@ -10,28 +10,42 @@
 //    <div class="tab">topic here</div>
 
 axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
-.then(res => {
-    console.log(res);
-    const topic = [];
-    res.data.topics.forEach(dataTopic =>{
-        topic.push(dataTopic);
+// .then(res => {
+//     console.log(res);
+//     const topic = [];
+//     res.data.topics.forEach(dataTopic =>{
+//         topic.push(dataTopic);
+//     })
+//     topic.forEach(info =>{
+//         // console.log(info);
+//         Tabs(info);
+//     })
+// })
+// .catch(error =>{
+//     console.log('uh oh', error)
+// })
+
+// function Tabs(info) {
+//     const topicsDiv = document.querySelector('.topics');
+//     const tab = document.createElement('div');
+
+//     topicsDiv.appendChild(tab)
+
+//     tab.classList.add('tab');
+
+//     tab.textContent = info;
+// }
+.then(data => {
+const topics = data.data.topics;
+    topics.forEach(topic => {
+        const topicDiv = document.createElement('div');
+        const topics = document.querySelector('.topics');
+        topicDiv.classList.add('tab');
+        topicDiv.textContent = topic;
+        topics.appendChild(topicDiv)
     })
-    topic.forEach(info =>{
-        // console.log(info);
-        Tabs(info);
-    })
+    console.log("Success", topics);
 })
-.catch(error =>{
-    console.log('uh oh', error)
-})
-
-function Tabs(info) {
-    const topicsDiv = document.querySelector('.topics');
-    const tab = document.createElement('div');
-
-    topicsDiv.appendChild(tab)
-
-    tab.classList.add('tab');
-
-    tab.textContent = info;
-}
+.catch(error => {
+    console.log("Error", error);
+}) 
