@@ -17,3 +17,50 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carouselContainer = document.querySelector('.carousel-container')
+
+carouselContainer.appendChild(Carousel())
+
+function Carousel(){
+  const carousel = document.createElement('div')
+  const carouselLBtn = document.createElement('div')
+  const carouselImg1 = document.createElement('img')
+  const carouselImg2 = document.createElement('img')
+  const carouselImg3 = document.createElement('img')
+  const carouselImg4 = document.createElement('img')
+  const carouselRBtn = document.createElement('div')
+
+  //add class elements
+  carousel.classList.add('carousel')
+  carouselLBtn.classList.add('left-button')
+  carouselImg1.classList.add('img')
+  carouselImg2.classList.add('img')
+  carouselImg3.classList.add('img')
+  carouselImg4.classList.add('img')
+  carouselRBtn.classList.add('right-button')
+  
+  //add content
+  carouselLBtn.textContent = ' < '
+  carouselRBtn.textContent = ' > '
+  carouselImg1.src = "./assets/carousel/mountains.jpeg"
+  carouselImg2.src = "./assets/carousel/computer.jpeg"
+  carouselImg3.src = "./assets/carousel/trees.jpeg" 
+  carouselImg4.src = "./assets/carousel/turntable.jpeg"
+
+  //append
+  carousel.appendChild(carouselLBtn)
+  carousel.appendChild(carouselImg1)
+  carousel.appendChild(carouselImg2)
+  carousel.appendChild(carouselImg3)
+  carousel.appendChild(carouselImg4)
+  carousel.appendChild(carouselRBtn)
+
+  let carouselImgs = document.getElementsByClassName('img')
+  let carouselIndex = 0
+  carouselImg1.style.display = "block";
+
+
+
+  return carousel
+}
