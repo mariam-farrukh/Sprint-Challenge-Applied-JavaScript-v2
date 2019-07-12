@@ -49,12 +49,36 @@ function Carousel(){
   carouselImg4.src = "./assets/carousel/turntable.jpeg"
 
   //append
-  carousel.appendChild(carouseLBtn)
+  carousel.appendChild(carouselLBtn)
   carousel.appendChild(carouselImg1)
   carousel.appendChild(carouselImg2)
   carousel.appendChild(carouselImg3)
   carousel.appendChild(carouselImg4)
   carousel.appendChild(carouselRBtn)
+
+  let carouselImgs = document.getElementsByClassName('img')
+  let carouselIndex = 0
+  carouselImg1.style.display = "block";
+
+  // carouselLBtn.addEventListener('click', function clickLeft() {
+  //   if ((carouselIndex- 1) < 0 ) {
+  //       carouselIndex = carouselImgs.length-1;
+  //   } else {
+  //     carouselIndex -= 1;
+  //   }
+  //   Array.from(carouselImages).forEach(image => image.style.display = "none");
+  //   carouselImages[carouselIndex].style.display = "block";
+  // })
+
+  // carouselRBtn.addEventListener('click', function clickRight() {
+  //   if (carouselIndex>= carouselImgs.length) {
+  //       carouselIndex = 0
+  //   } else {
+  //     carouselIndex += 1;
+  //   }
+  //   Array.from(carouselImages).forEach(image => image.style.display = "none");
+  //   carouselImages[carouselIndex].style.display = "block";
+  // })
 
   return carousel
 }
